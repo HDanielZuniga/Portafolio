@@ -1,8 +1,48 @@
-:root{ --ink:#0f172a; --paper:#f8fafc; --accent:#4f46e5; }
-*{ box-sizing:border-box }
-html, body{ padding:0; margin:0 }
-body{ color:var(--ink); background:var(--paper); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height:1.6 }
-main{ max-width: 80rem; margin: 0 auto 6rem; padding: 0 1.5rem; }
-.section-title{ font-size: clamp(1.75rem, 3vw, 2rem); font-weight: 800; margin: 4rem 0 1.5rem }
-.grid{ display:grid; gap: 1rem }
-@media (min-width: 768px){ .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@import "tailwindcss";
+
+/* Base mínima para tipografía y fondo */
+@layer base {
+  :root {
+    --ink: #0f172a;
+    --paper: #f8fafc;
+    --brand: #4f46e5;
+    --muted: #0f172a99;
+  }
+
+  html { @apply scroll-smooth; }
+  body { @apply bg-[var(--paper)] text-[var(--ink)] antialiased; }
+}
+
+/* Utilidades para títulos de sección y tarjetas */
+@layer components {
+  .section-title { 
+    @apply text-[clamp(1.75rem,3vw,2rem)] font-extrabold mt-16 mb-6 text-[var(--ink)]; 
+  }
+  .card { 
+    @apply border rounded-2xl p-4 bg-white shadow-sm; 
+    border-color: rgba(15, 23, 42, 0.08); /* equivalente a tu var */
+  }
+  .card__img { @apply block w-full h-auto rounded-xl mb-4; }
+  .card__title { @apply text-xl font-bold; }
+  .card__desc { @apply mt-2 text-[var(--muted)]; }
+  .card__link { @apply inline-block mt-2 text-[var(--brand)] font-semibold no-underline; }
+}
+
+/* Utilidades globales usadas en componentes */
+@layer utilities {
+  .text-brand { color: var(--brand); }
+  .bg-brand { background-color: var(--brand); }
+  .text-brand-ink { color: #030303; }
+  .text-ink { color: var(--ink); }
+  .muted { color: var(--muted); }
+  .border-borderc { border-color: color-mix(in oklab, var(--ink), transparent 85%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

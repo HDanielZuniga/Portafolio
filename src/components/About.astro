@@ -1,0 +1,25 @@
+---
+---
+<section id="about" class="mx-auto max-w-3xl px-6 py-16">
+  <h2 class="section-title">Sobre mí</h2>
+  <p class="about__lead text-lg text-[color:var(--muted,#0f172a99)]">
+    Concibo el software como un reflejo de la mente: arquitecturas que son símbolos y patrones que se vuelven funcionales.
+    Trabajo en desarrollo web, backend y automatización, buscando claridad, rendimiento y sentido.
+  </p>
+
+  <ul class="about__skills flex flex-wrap gap-2 mt-4 p-0 list-none">
+    <li class="border border-borderc rounded-lg px-3 py-1 bg-white">Astro + GSAP</li>
+    <li class="border border-borderc rounded-lg px-3 py-1 bg-white">Vue</li>
+    <li class="border border-borderc rounded-lg px-3 py-1 bg-white">JavaScript/Node</li>
+    <li class="border border-borderc rounded-lg px-3 py-1 bg-white">Python</li>
+  </ul>
+</section>
+
+<script>
+  import { onVisible, reveal, staggerChildren } from "@/utils/anim";
+
+  onVisible("#about", async () => {
+    await reveal(".about__lead", { y: 20, duration: 0.6 });
+    await staggerChildren(".about__skills", ":scope > li", {}, 0.08);
+  });
+</script>

@@ -1,0 +1,95 @@
+<section id="proyectos" class="mx-auto w-full px-0 pb-0">
+  <h2 class="section-title px-6">Proyectos</h2>
+
+  <div class="gallery" aria-label="Galería de proyectos">
+    <ul class="cards">
+      <li><img src="https://assets.codepen.io/16327/portrait-number-1.png" alt="Card 1" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-2.png" alt="Card 2" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-3.png" alt="Card 3" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-4.png" alt="Card 4" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-5.png" alt="Card 5" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-1.png" alt="Card 1b" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-2.png" alt="Card 2b" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-3.png" alt="Card 3b" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-4.png" alt="Card 4b" /></li>
+      <li><img src="https://assets.codepen.io/16327/portrait-number-5.png" alt="Card 5b" /></li>
+    </ul>
+
+    <div class="actions" aria-hidden="true">
+      <button class="prev" aria-label="Anterior">Prev</button>
+      <button class="next" aria-label="Siguiente">Next</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== Escopado a la sección #proyectos ===== */
+  #proyectos .gallery {
+    --dark: #0b0b0b;
+    --light: #f5f5f5;
+    position: relative;          
+    width: 100%;
+    height: min(80vh, 720px);
+    overflow: hidden;
+    background: #111;
+    border-radius: 1rem;
+    margin: 1.25rem 1rem 2.5rem;
+  }
+
+  #proyectos .cards {
+    position: absolute;
+    width: 14rem;
+    height: 18rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #proyectos .cards li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 14rem;
+    height: 18rem;
+    text-align: center;
+    line-height: 18rem;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.8rem;
+  }
+
+  #proyectos .cards li img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    opacity: 0;                 
+    user-select: none;
+    pointer-events: none;
+  }
+
+  #proyectos .actions {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #proyectos .actions button {
+    display: inline-block;
+    outline: none;
+    background: var(--dark);
+    border: solid 2px var(--light);
+    color: var(--light);
+    border-radius: 99px;
+    padding: 12px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 18px;
+    margin: 1rem;
+  }
+</style>
+
+<script type="module" src="/src/scripts/projects-cards.ts"></script>

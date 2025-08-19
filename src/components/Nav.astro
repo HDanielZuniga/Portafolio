@@ -1,0 +1,33 @@
+---
+---
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-borderc">
+  <div class="mx-auto max-w-5xl px-6 h-14 flex items-center justify-between">
+    <a href="/" class="font-bold">Daniel</a>
+
+    <ul class="nav__list flex items-center gap-5 m-0 p-0 list-none">
+      <li><a href="#about" class="hover:opacity-70">Sobre mí</a></li>
+      <li><a href="#experiencia" class="hover:opacity-70">Experiencia</a></li>
+      <li><a href="#proyectos" class="hover:opacity-70">Proyectos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  import { onVisible, staggerChildren } from "@/utils/anim";
+
+  // Micro-animación al montar
+  onVisible(".nav__list", () =>
+    staggerChildren(".nav__list", "a", { y: 8, duration: 0.35, autoAlpha: 0 }, 0.06)
+  );
+
+  // Scroll 
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute("href");
+    const el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+</script>

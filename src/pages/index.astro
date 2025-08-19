@@ -1,25 +1,13 @@
 ---
-import "../styles/global.css";
-import Hero from "../components/Hero.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
+import About from "@/components/About.astro";
+import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Portafolio | Daniel</title>
-    <meta name="description" content="Portafolio con Astro y GSAP" />
-  </head>
-  <body>
-    <Hero />
-    <main id="proyectos">
-      <h2 class="section-title">Proyectos</h2>
-      <section class="grid">
-        <ProjectCard title="Landing animada" description="Astro + GSAP: timelines y ScrollTrigger." image="https://picsum.photos/seed/astro1/800/500" link="#" />
-        <ProjectCard title="Dash de datos" description="Astro + API + micro-animaciones." image="https://picsum.photos/seed/astro2/800/500" link="#" />
-        <ProjectCard title="UI Kit" description="Componentes accesibles animados." image="https://picsum.photos/seed/astro3/800/500" link="#" />
-        <ProjectCard title="Blog técnico" description="MDX + transiciones." image="https://picsum.photos/seed/astro4/800/500" link="#" />
-      </section>
-    </main>
-  </body>
-</html>
+<Layout title="Daniel — Portafolio">
+  <Hero />
+  <About />
+  <Experience />
+  <Projects />
+</Layout>

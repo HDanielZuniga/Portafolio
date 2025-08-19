@@ -1,0 +1,38 @@
+---
+const items = [
+  {
+    role: "Proyectos académicos y personales",
+    period: "2024 – presente",
+    bullets: [
+      "Desarrollo web con Astro/Vue y animaciones con GSAP",
+      "Backend con Node.js/JavaScript",
+      "Automatización y utilidades en Python",
+    ],
+  },
+];
+---
+<section id="experiencia" class="mx-auto max-w-3xl px-6 py-16">
+  <h2 class="section-title">Experiencia</h2>
+
+  <div class="xp__list grid gap-4 mt-4">
+    {items.map((item) => (
+      <article class="border border-borderc rounded-2xl p-4 bg-white shadow-card">
+        <header class="flex items-baseline justify-between gap-3">
+          <h3 class="m-0 text-lg font-semibold">{item.role}</h3>
+          <span class="text-ink/70 text-sm">{item.period}</span>
+        </header>
+        <ul class="mt-2 ml-5">
+          {item.bullets.map((b) => <li>{b}</li>)}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  import { onVisible, staggerChildren } from "@/utils/anim";
+
+  onVisible("#experiencia", () =>
+    staggerChildren(".xp__list", ":scope > article", { y: 30, duration: 0.6 }, 0.12)
+  );
+</script>
